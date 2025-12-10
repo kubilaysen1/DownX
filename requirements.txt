@@ -1,0 +1,22 @@
+# 4KTube Free - Python Bağımlılıkları
+# pip install -r requirements.txt
+
+# YouTube indirme
+yt-dlp>=2024.1.0
+
+# Spotify indirme
+spotdl>=4.2.0
+spotipy>=2.23.0
+
+# HTTP istekleri
+requests>=2.31.0
+
+# Görsel işleme
+Pillow>=10.0.0
+
+# Ses dosyası metadata
+mutagen>=1.46.0
+
+# Opsiyonel: Daha iyi performans için
+# aiohttp>=3.9.0
+# aiofiles>=23.2.0

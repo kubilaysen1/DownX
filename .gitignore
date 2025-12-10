@@ -1,0 +1,241 @@
+# DownX .gitignore
+
+# ============================================
+# HASSAS BİLGİLER - ASLA COMMIT ETME!
+# ============================================
+
+# Config dosyaları (kullanıcıya özel)
+config.json
+spotify_credentials.json
+cookies.txt
+*.cookie
+
+# API keys ve secrets
+.env
+.env.local
+secrets.json
+credentials.json
+
+# ============================================
+# PYTHON
+# ============================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+.hypothesis/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# ============================================
+# IDE / EDITOR
+# ============================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.swp
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# OPERATING SYSTEM
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# APPLICATION SPECIFIC
+# ============================================
+
+# Logs
+*.log
+logs/
+kurulum.log
+
+# Cache
+cache/
+.cache/
+thumbnails/
+*.tmp
+
+# Downloads (kullanıcı indirmeleri)
+downloads/
+Music/DownX/
+*.mp3
+*.mp4
+*.m4a
+*.flac
+*.wav
+
+# Temp files
+temp/
+tmp/
+*.temp
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# BUILD & DISTRIBUTION
+# ============================================
+
+# Build outputs
+build/
+dist/
+*.exe
+*.msi
+*.deb
+*.rpm
+
+# Packaging
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# ============================================
+# DEVELOPMENT
+# ============================================
+
+# Test files
+test_output/
+test_downloads/
+
+# Documentation builds
+docs/_build/
+site/
+
+# ============================================
+# PROJECT SPECIFIC EXCEPTIONS
+# ============================================
+
+# Keep example configs (template)
+!config.example.json
+!spotify_credentials.example.json
+!cookies.example.txt
+
+# Keep resources
+!resources/
+!resources/icons/
+!resources/icons/*.png
+
+# Keep documentation
+!README.md
+!LICENSE
+!CHANGELOG.md
+!CONTRIBUTING.md
+
+# Keep scripts
+!setup*.sh
+!setup*.bat
+!setup*.ps1
+!install.sh
+!install.ps1
+!run.sh
+!run.bat
+
+# Keep requirements
+!requirements.txt
+!requirements-dev.txt

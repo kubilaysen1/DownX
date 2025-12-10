@@ -1,0 +1,49 @@
+PROJE KİMLİĞİ:
+Uygulama: 4KTube Free (Video & Müzik İndirici)
+Framework: Python, GTK (PyGObject), Threading
+Veri Yapısı: JSON (Tasks/Settings)
+
+--- ANA DOSYA YAPISI VE GÖREV DAĞILIMI ---
+
+1. [BAŞLANGIÇ NOKTASI]
+   - launcher.py: Uygulamanın giriş kapısıdır. Bağımlılıkları kontrol eder (check_dependencies.py) ve ardından ana arayüzü (gui.py) başlatır.
+
+2. [ARAYÜZ (GUI) KATMANI]
+   - gui.py: Ana pencereyi oluşturur. Sekmeleri (Tabs) ve genel yerleşimi yönetir.
+   - search_tab.py: Arama sekmesi arayüzü ve mantığı.
+   - downloads_tab.py: İndirme sırasını ve ilerleme durumunu gösteren sekme.
+   - settings_tab.py: Ayarların değiştirildiği sekme.
+   - tools_tab.py: Ekstra araçların bulunduğu sekme.
+   
+   *GUI KURALI:* Arayüz kodları (Gtk.* widget'ları) sadece bu dosyalarda olmalı.
+
+3. [MANTIK (BACKEND) KATMANI]
+   - downloader.py: Asıl indirme işlemini yapan motor. (GUI'den bağımsız çalışmalı).
+   - queue_manager.py: İndirme sırasını, bekleyen işleri yönetir.
+   - youtube_client.py: YouTube'dan veri çekme/link çözümleme işlemleri.
+   - spotify_client.py: Spotify API/Scraping işlemleri.
+   - tagger.py: İndirilen dosyalara metadata (kapak resmi, sanatçı adı) ekler.
+
+4. [AYARLAR VE VERİ]
+   - settings.py: Program ayarlarını (json) okur ve yazar. "Config" sınıfı buradadır.
+   - tasks.json: İndirme listesinin ve geçmişin tutulduğu veritabanı dosyası.
+   - cookies.txt: YouTube/Spotify oturum çerezleri.
+
+5. [YARDIMCI ARAÇLAR]
+   - check_dependencies.py: Gerekli kütüphaneler (ffmpeg vb.) var mı kontrol eder.
+   - save_as_cookies.py: Çerezleri formatlamak için yardımcı araç.
+   - requirements.txt: Projenin kütüphane bağımlılıkları.
+
+--- GEM AI İÇİN KODLAMA KURALLARI ---
+
+KURAL 1 (MODÜLERLİK): 
+Bir sekmede (örneğin 'search_tab.py') değişiklik yaparken, bunun 'gui.py' içindeki Notebook yapısına eklendiğini unutma.
+
+KURAL 2 (THREADING - ÇOK ÖNEMLİ): 
+'downloader.py' uzun süren bir işlemdir. Asla GUI thread'ini (MainThread) kilitlememelidir. İndirme işlemleri ayrı bir thread'de çalışmalı, ancak 'gui.py' üzerindeki Progress Bar güncellemeleri `GLib.idle_add` ile ana thread'e gönderilmelidir.
+
+KURAL 3 (VERİ AKIŞI): 
+Kullanıcı 'search_tab.py'da bir link bulur -> 'queue_manager.py'a ekler -> 'downloads_tab.py' bunu listeler -> 'downloader.py' işlemi yapar. Bu akışı bozma.
+
+KURAL 4 (HARİCİ KÜTÜPHANELER):
+'.venv' klasöründeki dosyalara (ffmpeg, pytube, spotdl vb.) asla müdahale etme. Onlar sadece import edilip kullanılır. Sadece yukarıda listelenen kök dizindeki dosyaları düzenle.

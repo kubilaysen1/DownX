@@ -1,0 +1,65 @@
+{
+    "_comment": "DownX Configuration Template",
+    "_instructions": "1. Bu dosyayı 'config.json' olarak kopyalayın",
+    "_instructions2": "2. Ayarları kendi tercihinize göre düzenleyin",
+    "_location_linux": "~/.config/downx/config.json",
+    "_location_windows": "%APPDATA%\\DownX\\config.json",
+    
+    "download_dir": "~/Music/DownX",
+    
+    "audio_format": "m4a",
+    "_audio_format_options": ["m4a", "mp3", "flac", "opus", "wav"],
+    
+    "audio_quality": "320",
+    "_audio_quality_options": ["320", "256", "192", "128"],
+    "_audio_quality_note": "kbps cinsinden",
+    
+    "video_format": "mp4",
+    "_video_format_options": ["mp4", "mkv", "webm"],
+    
+    "video_quality": "1080",
+    "_video_quality_options": ["2160", "1440", "1080", "720", "480", "360"],
+    "_video_quality_note": "p (piksel) cinsinden",
+    
+    "embed_metadata": true,
+    "_embed_metadata_note": "Başlık, sanatçı, albüm vb. bilgileri ekle",
+    
+    "embed_thumbnail": true,
+    "_embed_thumbnail_note": "Kapak resmini dosyaya göm",
+    
+    "embed_lyrics": false,
+    "_embed_lyrics_note": "Şarkı sözlerini dosyaya göm (varsa)",
+    
+    "concurrent_downloads": 3,
+    "_concurrent_downloads_note": "Aynı anda kaç indirme yapılsın (1-10)",
+    
+    "retry_count": 3,
+    "_retry_count_note": "Başarısız indirmeleri kaç kez tekrar dene",
+    
+    "skip_existing": true,
+    "_skip_existing_note": "Zaten indirilmiş dosyaları atla",
+    
+    "create_playlist_folder": true,
+    "_create_playlist_folder_note": "Playlist'ler için ayrı klasör oluştur",
+    
+    "organize_by_artist": false,
+    "_organize_by_artist_note": "Sanatçı adına göre klasörlere ayır",
+    
+    "theme": "dark",
+    "_theme_options": ["dark", "light", "auto"],
+    
+    "language": "tr",
+    "_language_options": ["tr", "en"],
+    
+    "notification_sound": false,
+    "_notification_sound_note": "İndirme tamamlandığında ses çal",
+    
+    "auto_update_check": true,
+    "_auto_update_check_note": "Başlangıçta güncelleme kontrolü yap",
+    
+    "log_level": "INFO",
+    "_log_level_options": ["DEBUG", "INFO", "WARNING", "ERROR"],
+    
+    "max_log_size_mb": 10,
+    "_max_log_size_mb_note": "Log dosyası bu boyutu aştığında temizle"
+}

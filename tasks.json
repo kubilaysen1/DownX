@@ -1,0 +1,65 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "X11 Access",
+            "type": "shell",
+            "command": "xhost +local:",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Run 4KTube in Container",
+            "type": "shell",
+            "command": "distrobox enter 4ktube-dev -- bash -c 'cd ~/4ktube-home && source .venv/bin/activate && python gui.py'",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "dependsOn": ["X11 Access"]
+        },
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "distrobox enter 4ktube-dev -- bash -c 'cd ~/4ktube-home && source .venv/bin/activate && pip install -r requirements.txt'",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Update yt-dlp",
+            "type": "shell",
+            "command": "distrobox enter 4ktube-dev -- bash -c 'cd ~/4ktube-home && source .venv/bin/activate && pip install --upgrade yt-dlp'",
+            "problemMatcher": []
+        },
+        {
+            "label": "Enter Container Shell",
+            "type": "shell",
+            "command": "distrobox enter 4ktube-dev",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Sync Files to Container",
+            "type": "shell",
+            "command": "cp -v *.py ~/4ktube-home/ && echo 'Files synced!'",
+            "problemMatcher": []
+        }
+    ]
+}
